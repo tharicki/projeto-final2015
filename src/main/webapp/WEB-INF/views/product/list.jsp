@@ -21,9 +21,9 @@
 	                  </tr>
                   </thead>
                   <tbody>
-                  <c:forEach items='${paginatedList.currentList}' var='object'>         		
+                  <c:forEach items='${paginatedList.currentList}' var='object'>
 	                  <tr>
-						<td><a href="<c:url value='/product'/>/${object.id}">${object.id}</a></td>
+						<td><a href="<c:url value='/clientes'/>/${object.id}">${object.id}</a></td>
 		                  	<td>${object.name}</td>
 	                    <td><a href="<c:url value='/product/remove'/>/${object.id}">Remove</a></td>
 					  </tr>

@@ -22,6 +22,5 @@ public class SpringMVCServlet extends AbstractAnnotationConfigDispatcherServletI
    {
       return new String[] { "/" };
    }
-   //toma no cu
 
 }

@@ -20,15 +20,13 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-public class JPAConfiguration
-{
+public class JPAConfiguration {
 
    @Bean
-   public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource)
-   {
+   public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
       LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
       em.setDataSource(dataSource);
-      em.setPackagesToScan(new String[] { "br.com.tharicki.projetofinal.models" });
+      em.setPackagesToScan(new String[]{"br.com.tharicki.projetofinal.models"});
 
       JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
       em.setJpaVendorAdapter(vendorAdapter);
@@ -38,32 +36,28 @@ public class JPAConfiguration
    }
 
    @Bean
-   public DataSource dataSource(Environment environment)
-   {
+   public DataSource dataSource(Environment environment) {
       DriverManagerDataSource dataSource = new DriverManagerDataSource();
       dataSource.setDriverClassName("com.mysql.jdbc.Driver");
       dataSource.setUrl("jdbc:mysql://localhost/tharicki");
       dataSource.setUsername("root");
-      dataSource.setPassword("Slipknotsnuff02!");
+      dataSource.setPassword("abc");
       return dataSource;
    }
 
    @Bean
-   public PlatformTransactionManager transactionManager(EntityManagerFactory emf)
-   {
+   public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
       JpaTransactionManager transactionManager = new JpaTransactionManager();
       transactionManager.setEntityManagerFactory(emf);
       return transactionManager;
    }
 
    @Bean
-   public PersistenceExceptionTranslationPostProcessor exceptionTranslation()
-   {
+   public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
       return new PersistenceExceptionTranslationPostProcessor();
    }
 
-   Properties additionalProperties()
-   {
+   Properties additionalProperties() {
       Properties properties = new Properties();
       properties.setProperty("hibernate.hbm2ddl.auto", "update");
       properties.setProperty("hibernate.show_sql", "true");

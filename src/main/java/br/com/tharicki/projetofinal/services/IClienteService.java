@@ -1,6 +1,8 @@
 package br.com.tharicki.projetofinal.services;
 
 import br.com.tharicki.projetofinal.models.Cliente;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
 

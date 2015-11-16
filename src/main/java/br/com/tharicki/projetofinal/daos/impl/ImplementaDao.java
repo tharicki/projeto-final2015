@@ -18,7 +18,7 @@ import java.util.List;
 @Repository
 public abstract class ImplementaDao<T, ID extends Serializable> implements IDao<T, ID> {
 
-    private Class<T> persistentTClass;
+    private Class<T> persistentClass;
 
     @PersistenceContext(name = "darkconnection")
     protected EntityManager entityManager;
@@ -29,13 +29,13 @@ public abstract class ImplementaDao<T, ID extends Serializable> implements IDao<
 
     @SuppressWarnings("unchecked")
     public ImplementaDao() {
-        this.persistentTClass = (Class<T>) ((ParameterizedType) getClass()
+        this.persistentClass = (Class<T>) ((ParameterizedType) getClass()
                 .getGenericSuperclass()).getActualTypeArguments()[0];
     }
 
     @Transactional()
     public T getById(ID id) {
-        return entityManager.find(persistentTClass, id);
+        return entityManager.find(persistentClass, id);
     }
 
     @Transactional
@@ -59,10 +59,15 @@ public abstract class ImplementaDao<T, ID extends Serializable> implements IDao<
         entityManager.refresh(entity);
     }
 
-    @Transactional
+    public Class<T> getPersistentTClass() {
+        return persistentClass;
+    }
+
+    @Transactional()
     @SuppressWarnings("unchecked")
     public List<T> getList() {
-        return entityManager.createQuery("select t from " + persistentTClass.getSimpleName()
-                + " t ").getResultList();
+        return entityManager.createQuery(
+                "Select t from " + persistentClass.getSimpleName() + " t")
+                .getResultList();
     }
 }

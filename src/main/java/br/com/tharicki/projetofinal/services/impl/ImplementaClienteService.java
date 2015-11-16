@@ -4,12 +4,14 @@ import br.com.tharicki.projetofinal.daos.IClienteDao;
 import br.com.tharicki.projetofinal.models.Cliente;
 import br.com.tharicki.projetofinal.services.IClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 
 /**
  * Created by Tharicki on 14/11/2015.
  */
+@Service
 public class ImplementaClienteService extends ImplementaService<Cliente> implements IClienteService {
 
     @Autowired

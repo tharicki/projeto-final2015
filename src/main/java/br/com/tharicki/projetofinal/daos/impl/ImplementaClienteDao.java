@@ -10,6 +10,6 @@ import java.io.Serializable;
  * Created by Tharicki on 14/11/2015.
  */
 @Repository
-public class ImplementaClienteDao extends ImplementaDao<Cliente, Serializable> implements IClienteDao{
+public class ImplementaClienteDao extends ImplementaDao<Cliente, Serializable> implements IClienteDao {
 
 }

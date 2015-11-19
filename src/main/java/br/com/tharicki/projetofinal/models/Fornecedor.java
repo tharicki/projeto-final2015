@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class Fornecedor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Integer id;
     @Column(nullable = false)
     private String nomefantasia;

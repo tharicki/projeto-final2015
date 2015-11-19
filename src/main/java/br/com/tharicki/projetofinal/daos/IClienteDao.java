@@ -8,5 +8,4 @@ import java.io.Serializable;
  * Created by Tharicki on 14/11/2015.
  */
 public interface IClienteDao extends IDao<Cliente, Serializable> {
-
 }

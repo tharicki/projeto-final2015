@@ -36,8 +36,8 @@ public class ImplementaService<T extends Object> implements IService<T, Serializ
     }
 
     @Override
-    public void refesh(T entity) {
-        dao.refesh(entity);
+    public void refresh(T entity) {
+        dao.refresh(entity);
     }
 
     @Override

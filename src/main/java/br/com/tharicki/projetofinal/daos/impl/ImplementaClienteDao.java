@@ -11,5 +11,4 @@ import java.io.Serializable;
  */
 @Repository
 public class ImplementaClienteDao extends ImplementaDao<Cliente, Serializable> implements IClienteDao {
-
 }

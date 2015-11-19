@@ -55,7 +55,7 @@ public abstract class ImplementaDao<T, ID extends Serializable> implements IDao<
     }
 
     @Transactional
-    public void refesh(T entity) {
+    public void refresh(T entity) {
         entityManager.refresh(entity);
     }
 

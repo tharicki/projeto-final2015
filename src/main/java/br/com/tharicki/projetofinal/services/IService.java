@@ -13,7 +13,7 @@ public interface IService<T, ID extends Serializable> {
     void persist(T entity);
     void update(T entity);
     void delete(T entity);
-    void refesh(T entity);
+    void refresh(T entity);
 
     List<T> findAllObjects();
 }

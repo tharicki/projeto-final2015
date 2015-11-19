@@ -1,5 +1,7 @@
 package br.com.tharicki.projetofinal.models;
 
+import com.sun.istack.internal.Nullable;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -13,13 +15,17 @@ public class Agenda {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @Column(nullable = false)
     private Date horario;
+
     @Column
     private String obs;
+
     @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumn(name="cliente_id", referencedColumnName="id", nullable = false)
     private Cliente cliente;
+
     @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumn(name="tarefa_id", referencedColumnName="id", nullable = false)
     private Tarefa tarefa;

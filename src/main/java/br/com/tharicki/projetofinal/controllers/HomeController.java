@@ -10,7 +10,7 @@ public class HomeController {
 
     @RequestMapping("/")
     public String index() {
-        return "Funcionou até aqui, ma nem se anime, no resto vai da pau... Ctz!";
+        return "Software para salões de beleza";
     }
 
 }

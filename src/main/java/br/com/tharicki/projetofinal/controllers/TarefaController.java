@@ -5,8 +5,7 @@ import br.com.tharicki.projetofinal.models.Tarefa;
 import br.com.tharicki.projetofinal.services.ISaidaService;
 import br.com.tharicki.projetofinal.services.ITarefaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +21,37 @@ public class TarefaController {
     @RequestMapping("/tarefas")
     public List<Tarefa> findAllTarefas(){
         return tarefaService.findAllObjects();
+    }
+
+    @RequestMapping(value = "/fornecedores",method = RequestMethod.POST)
+    public Tarefa save(@RequestBody Tarefa tarefa){
+        try {
+            tarefaService.persist(tarefa);
+        } catch (Exception e){
+            e.printStackTrace();
+            tarefaService.update(tarefa);
+        }
+        return tarefa;
+    }
+
+    @RequestMapping(value = "/fornecedores/{id}",method = RequestMethod.POST)
+    public Tarefa update(@PathVariable("id") Integer id, @RequestBody Tarefa tarefa){
+        try {
+            tarefaService.persist(tarefa);
+        } catch (Exception e){
+            tarefaService.update(tarefa);
+        }
+        return tarefa;
+    }
+
+    @RequestMapping(value = "/fornecedores", method = RequestMethod.DELETE)
+    public Tarefa delete(@RequestBody Tarefa tarefa){
+        try {
+            tarefaService.delete(tarefa);
+        } catch (Exception e){
+            return tarefa;
+        }
+        return tarefa;
     }
 
 }

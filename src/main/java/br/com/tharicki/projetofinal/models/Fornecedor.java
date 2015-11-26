@@ -30,12 +30,12 @@ public class Fornecedor {
         this.id = id;
     }
 
-    public String getNome_fantasia() {
+    public String getNomefantasia() {
         return nomefantasia;
     }
 
-    public void setNome_fantasia(String nome_fantasia) {
-        this.nomefantasia = nome_fantasia;
+    public void setNomefantasia(String nomefantasia) {
+        this.nomefantasia = nomefantasia;
     }
 
     public String getCidade() {

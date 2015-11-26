@@ -1,7 +1,5 @@
 package br.com.tharicki.projetofinal.models;
 
-import com.sun.istack.internal.Nullable;
-
 import javax.persistence.*;
 import java.util.Date;
 

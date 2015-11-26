@@ -5,8 +5,7 @@ import br.com.tharicki.projetofinal.models.Produto;
 import br.com.tharicki.projetofinal.services.IAgendaService;
 import br.com.tharicki.projetofinal.services.IProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +21,37 @@ public class ProdutoController {
     @RequestMapping("/produtos")
     public List<Produto> findAllLProdutos(){
         return produtoService.findAllObjects();
+    }
+
+    @RequestMapping(value = "/fornecedores",method = RequestMethod.POST)
+    public Produto save(@RequestBody Produto produto){
+        try {
+            produtoService.persist(produto);
+        } catch (Exception e){
+            e.printStackTrace();
+            produtoService.update(produto);
+        }
+        return produto;
+    }
+
+    @RequestMapping(value = "/fornecedores/{id}",method = RequestMethod.POST)
+    public Produto update(@PathVariable("id") Integer id, @RequestBody Produto produto){
+        try {
+            produtoService.persist(produto);
+        } catch (Exception e){
+            produtoService.update(produto);
+        }
+        return produto;
+    }
+
+    @RequestMapping(value = "/fornecedores", method = RequestMethod.DELETE)
+    public Produto delete(@RequestBody Produto produto){
+        try {
+            produtoService.delete(produto);
+        } catch (Exception e){
+            return produto;
+        }
+        return produto;
     }
 
 }

@@ -23,7 +23,7 @@ public class SaidaController {
         return saidaService.findAllObjects();
     }
 
-    @RequestMapping(value = "/fornecedores",method = RequestMethod.POST)
+    @RequestMapping(value = "/saidas",method = RequestMethod.POST)
     public Saida save(@RequestBody Saida saida){
         try {
             saidaService.persist(saida);
@@ -34,7 +34,7 @@ public class SaidaController {
         return saida;
     }
 
-    @RequestMapping(value = "/fornecedores/{id}",method = RequestMethod.POST)
+    @RequestMapping(value = "/saidas/{id}",method = RequestMethod.POST)
     public Saida update(@PathVariable("id") Integer id, @RequestBody Saida saida){
         try {
             saidaService.persist(saida);
@@ -44,7 +44,7 @@ public class SaidaController {
         return saida;
     }
 
-    @RequestMapping(value = "/fornecedores", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/saidas", method = RequestMethod.DELETE)
     public Saida delete(@RequestBody Saida saida){
         try {
             saidaService.delete(saida);

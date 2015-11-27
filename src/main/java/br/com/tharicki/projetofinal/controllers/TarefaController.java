@@ -23,7 +23,7 @@ public class TarefaController {
         return tarefaService.findAllObjects();
     }
 
-    @RequestMapping(value = "/fornecedores",method = RequestMethod.POST)
+    @RequestMapping(value = "/tarefas",method = RequestMethod.POST)
     public Tarefa save(@RequestBody Tarefa tarefa){
         try {
             tarefaService.persist(tarefa);
@@ -34,7 +34,7 @@ public class TarefaController {
         return tarefa;
     }
 
-    @RequestMapping(value = "/fornecedores/{id}",method = RequestMethod.POST)
+    @RequestMapping(value = "/tarefas/{id}",method = RequestMethod.POST)
     public Tarefa update(@PathVariable("id") Integer id, @RequestBody Tarefa tarefa){
         try {
             tarefaService.persist(tarefa);
@@ -44,7 +44,7 @@ public class TarefaController {
         return tarefa;
     }
 
-    @RequestMapping(value = "/fornecedores", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/tarefas", method = RequestMethod.DELETE)
     public Tarefa delete(@RequestBody Tarefa tarefa){
         try {
             tarefaService.delete(tarefa);

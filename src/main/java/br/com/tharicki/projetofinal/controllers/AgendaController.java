@@ -21,7 +21,7 @@ public class AgendaController {
         return agendaService.findAllObjects();
     }
 
-    @RequestMapping(value = "/fornecedores",method = RequestMethod.POST)
+    @RequestMapping(value = "/agendas",method = RequestMethod.POST)
     public Agenda save(@RequestBody Agenda agenda){
         try {
             agendaService.persist(agenda);
@@ -32,7 +32,7 @@ public class AgendaController {
         return agenda;
     }
 
-    @RequestMapping(value = "/fornecedores/{id}",method = RequestMethod.POST)
+    @RequestMapping(value = "/agendas/{id}",method = RequestMethod.POST)
     public Agenda update(@PathVariable("id") Integer id, @RequestBody Agenda agenda){
         try {
             agendaService.persist(agenda);
@@ -42,14 +42,14 @@ public class AgendaController {
         return agenda;
     }
 
-    @RequestMapping(value = "/fornecedores", method = RequestMethod.DELETE)
-    public Agenda delete(@RequestBody Agenda agenda){
-        try {
-            agendaService.delete(agenda);
-        } catch (Exception e){
-            return agenda;
-        }
-        return agenda;
-    }
+//    @RequestMapping(value = "/agendas", method = RequestMethod.DELETE)
+//    public Agenda delete(@RequestBody Agenda agenda){
+//        try {
+//            agendaService.delete(agenda);
+//        } catch (Exception e){
+//            return agenda;
+//        }
+//        return agenda;
+//    }
 
 }

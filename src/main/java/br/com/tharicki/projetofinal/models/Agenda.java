@@ -1,5 +1,7 @@
 package br.com.tharicki.projetofinal.models;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -15,16 +17,16 @@ public class Agenda {
     private Integer id;
 
     @Column(nullable = false)
-    private Date horario;
+    private String horario;
 
     @Column
     private String obs;
 
-    @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="cliente_id", referencedColumnName="id", nullable = false)
     private Cliente cliente;
 
-    @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="tarefa_id", referencedColumnName="id", nullable = false)
     private Tarefa tarefa;
 
@@ -39,11 +41,11 @@ public class Agenda {
         this.id = id;
     }
 
-    public Date getHorario() {
+    public String getHorario() {
         return horario;
     }
 
-    public void setHorario(Date horario) {
+    public void setHorario(String horario) {
         this.horario = horario;
     }
 

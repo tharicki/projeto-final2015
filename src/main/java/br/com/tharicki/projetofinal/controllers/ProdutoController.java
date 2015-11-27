@@ -23,7 +23,7 @@ public class ProdutoController {
         return produtoService.findAllObjects();
     }
 
-    @RequestMapping(value = "/fornecedores",method = RequestMethod.POST)
+    @RequestMapping(value = "/produtos",method = RequestMethod.POST)
     public Produto save(@RequestBody Produto produto){
         try {
             produtoService.persist(produto);
@@ -34,7 +34,7 @@ public class ProdutoController {
         return produto;
     }
 
-    @RequestMapping(value = "/fornecedores/{id}",method = RequestMethod.POST)
+    @RequestMapping(value = "/produtos/{id}",method = RequestMethod.POST)
     public Produto update(@PathVariable("id") Integer id, @RequestBody Produto produto){
         try {
             produtoService.persist(produto);
@@ -44,7 +44,7 @@ public class ProdutoController {
         return produto;
     }
 
-    @RequestMapping(value = "/fornecedores", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/produtos", method = RequestMethod.DELETE)
     public Produto delete(@RequestBody Produto produto){
         try {
             produtoService.delete(produto);

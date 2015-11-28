@@ -17,7 +17,7 @@ public class Produto {
     private String descricao;
     @Column
     private String marca;
-    @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="fornecedor_id", referencedColumnName="id", nullable = false)
     private Fornecedor fornecedor;
 

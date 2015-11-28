@@ -42,14 +42,14 @@ public class AgendaController {
         return agenda;
     }
 
-//    @RequestMapping(value = "/agendas", method = RequestMethod.DELETE)
-//    public Agenda delete(@RequestBody Agenda agenda){
-//        try {
-//            agendaService.delete(agenda);
-//        } catch (Exception e){
-//            return agenda;
-//        }
-//        return agenda;
-//    }
+    @RequestMapping(value = "/agendas", method = RequestMethod.DELETE)
+    public Agenda delete(@RequestBody Agenda agenda){
+        try {
+            agendaService.delete(agenda);
+        } catch (Exception e){
+            return agenda;
+        }
+        return agenda;
+    }
 
 }

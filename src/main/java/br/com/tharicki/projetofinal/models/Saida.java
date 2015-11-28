@@ -16,13 +16,13 @@ public class Saida {
     private String valor;
     @Column
     private String obs;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cliente_id", referencedColumnName = "id")
     private Cliente cliente;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "produto_id", referencedColumnName = "id")
     private Produto produto;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "tarefa_id", referencedColumnName = "id")
     private Tarefa tarefa;
 

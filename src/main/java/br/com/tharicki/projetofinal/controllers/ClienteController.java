@@ -42,4 +42,14 @@ public class ClienteController {
         return cliente;
     }
 
+    @RequestMapping(value = "/clientes", method = RequestMethod.DELETE)
+    public Cliente delete(@RequestBody Cliente cliente){
+        try {
+            clienteService.delete(cliente);
+        } catch (Exception e){
+            return cliente;
+        }
+        return cliente;
+    }
+
 }
